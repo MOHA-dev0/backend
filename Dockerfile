@@ -1,17 +1,18 @@
 FROM php:8.2-apache
 
-# 1. تثبيت البرامج والمكتبات الضرورية (بما فيها intl)
+# 1. تثبيت البرامج والمكتبات الضرورية (أضفنا libzip-dev)
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
     zip \
     unzip \
+    libzip-dev \
     libicu-dev \
     git \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd intl zip
 
-# 2. تفعيل إعدادات السيرفر (Apache Rewrite) عشان الراوتس تشتغل
+# 2. تفعيل إعدادات السيرفر (Apache Rewrite)
 RUN a2enmod rewrite
 
 # 3. ضبط مجلد الروت ليكون public
