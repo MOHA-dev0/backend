@@ -1,0 +1,7 @@
+[
+    {
+        "name": "slider_ads",
+        "description": "Manage home slider ads",
+        "path": "app/Filament/Resources/SliderAdResource.php"
+    }
+]
